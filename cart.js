@@ -9,6 +9,7 @@ let cartContainer = document.querySelector('.cart-main-cont');
 const total = document.querySelector('.t-cost');
 const alertBox = document.querySelector('.al')
 const message = document.querySelector('.message')
+const completeBtn = document.querySelector('.complete')
 
 //Ading items to cart
 export function addToCart(){
@@ -25,6 +26,7 @@ export function addToCart(){
         }else{
             cartItem.push({...currentProduct, qyt:1});
             console.log(cartItem)
+            message.textContent = `${currentProduct.title}`
             
             // increaseQuantity()
             totalCost()
@@ -35,6 +37,7 @@ export function addToCart(){
         }
         cartNotification()
         renderCartProduct();
+        completeOrder()
         console.log(currentProduct)
        })
     })
@@ -156,10 +159,20 @@ function cartNotification(){
         document.title = `eizyBook`
     }
 
-    //working on alert
-
+    //working on alertBox
     alertBox.classList.add('show')
-    message.textContent = `(${cartItem.length}) items added`
-
     setTimeout(()=> alertBox.classList.remove('show'), 2000)
+}
+
+
+//disbaling complete order button when there is no Item
+
+function completeOrder(){
+    if(cartItem.length === 0){
+        completeBtn.setAttribute('disabled' , 'true')
+        completeBtn.classList.add('disabled')
+    }else{
+        completeBtn.removeAttribute('disabled')
+        completeBtn.classList.remove('disabled')
+    }
 }

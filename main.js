@@ -25,6 +25,7 @@ const exitModal = document.querySelector('.shop')
 const modal = document.querySelector('.modal-d')
 const alertBox = document.querySelector('.al')
 
+
 //cart toggle
 
 alertBox.addEventListener('click', ()=>{
