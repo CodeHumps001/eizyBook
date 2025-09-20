@@ -66,6 +66,14 @@
     border-radius: 11px;
     background-color: #868e96;
 }
+.cart-container{
+    padding: 20px 10px;
+    max-height: 390px;
+    overflow-y: scroll;
+    background-color: #fff;
+    animation: fade-in ease-in .5s backwards;
+    
+}
 
 
 }
