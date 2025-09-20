@@ -315,3 +315,29 @@ body{
 .p-order button:hover{
     background-color: #083710;
 }
+
+.alert{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: #29614b;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    cursor: pointer;
+}
+.alert.show{
+    opacity: 1;
+}
+.alert .added{
+    width: 15px;
+    color: #fff;
+}
