@@ -40,6 +40,8 @@ export function addToCart(){
         cartNotification()
         renderCartProduct();
         completeOrder()
+        increaseQuantity()
+        decreaseQuantity()
         console.log(currentProduct)
        })
     })
@@ -98,7 +100,7 @@ function deleteCartItem(){
             const index = btn.getAttribute('delete-set') ;
 
             cartItem.splice(index,1)
-             cartCounter.textContent = itemCounter.textContent = cartItem.length
+            cartCounter.textContent = itemCounter.textContent = cartItem.length
             renderCartProduct()
 
             totalCost()
@@ -124,17 +126,19 @@ function increaseQuantity(){
 
     increaseBtn.forEach(btn => {
         btn.addEventListener('click', ()=>{
-            const index = btn.getAttribute('add-set');
-            const getItem = cartItem.find(product => product.id = index);
+            const index = +btn.getAttribute('add-set');
+            
+            const getItem = cartItem.find(product => product.id === index);
+            
             if(getItem.qyt < getItem.stock){
                 getItem.qyt++
                 totalCost()
                 renderCartProduct()
                 
             }else{
-                    alertBoxError.classList.add('show')
-                    errorMessage.textContent = `You can't add more that ${getItem.stock} copies `
-                    setTimeout(()=> alertBoxError.classList.remove('show'), 2000)
+                alertBoxError.classList.add('show')
+                errorMessage.textContent = `You can't add more than ${getItem.stock} copies `
+                setTimeout(()=> alertBoxError.classList.remove('show'), 2000)
                     
             }
         })
@@ -146,13 +150,11 @@ function decreaseQuantity(){
 
     decreaseBtn.forEach(btn => {
         btn.addEventListener('click', ()=>{
-            const index = btn.getAttribute('sub-set');
-            const getItem = cartItem.find(product => product.id = index );
+            const index = +btn.getAttribute('sub-set');
+            const getItem = cartItem.find(product => product.id === index );
             getItem.qyt > 1 ? getItem.qyt-- : getItem.gyt;
             totalCost()
             renderCartProduct()
-            
-
         })
     })
 }
