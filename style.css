@@ -26,7 +26,7 @@ body{
     background-color: #fff;
     top: 0;
     position: sticky;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .logo{
@@ -183,6 +183,7 @@ body{
     /* display: flex; */
     justify-content: center;
     align-items: center;
+    z-index: 2000;
      animation: fade-in ease-in .5s backwards;
 }
 .modal{
@@ -192,6 +193,7 @@ body{
     border-radius: 8px;
     display: flex;
     padding: 10px;
+    
 }
 
 .cart-items{
@@ -217,7 +219,7 @@ body{
 }
 .cart-container{
     padding: 20px 30px;
-    height: 550px;
+    max-height: 550px;
     overflow-y: scroll;
     background-color: #fff;
     animation: fade-in ease-in .5s backwards;
@@ -361,6 +363,7 @@ body{
     opacity: 0;
     transition: opacity 0.4s;
     cursor: pointer;
+    z-index: 999999;
 }
 .alert p{
     max-width: 200px;
