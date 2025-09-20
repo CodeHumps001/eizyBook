@@ -8,8 +8,10 @@ const itemCounter = document.querySelectorAll('.items-count');
 let cartContainer = document.querySelector('.cart-main-cont');
 const total = document.querySelector('.t-cost');
 const alertBox = document.querySelector('.al')
+const alertBoxError = document.querySelector('.alE')
 const message = document.querySelector('.message')
 const completeBtn = document.querySelector('.complete')
+const errorMessage = document.querySelector('.error')
 
 //Ading items to cart
 export function addToCart(){
@@ -100,6 +102,7 @@ function deleteCartItem(){
             renderCartProduct()
 
             totalCost()
+            completeOrder()
              cartCounter.textContent =  cartItem.length
              itemCounter.forEach(btn =>{
                 btn.textContent= cartItem.length
@@ -123,11 +126,16 @@ function increaseQuantity(){
         btn.addEventListener('click', ()=>{
             const index = btn.getAttribute('add-set');
             const getItem = cartItem.find(product => product.id = index);
-            if(getItem){
+            if(getItem.qyt < getItem.stock){
                 getItem.qyt++
                 totalCost()
                 renderCartProduct()
                 
+            }else{
+                    alertBoxError.classList.add('show')
+                    errorMessage.textContent = `You can't add more that ${getItem.stock} copies `
+                    setTimeout(()=> alertBoxError.classList.remove('show'), 2000)
+                    
             }
         })
     })
