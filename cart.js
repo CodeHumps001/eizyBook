@@ -58,7 +58,7 @@ function renderCartProduct(){
                         <div class="cart-table">
                             <div class="image-details">
                                 <div class="img">
-                                 <img src="${product.image}" alt="">
+                                 <img loading="lazy" src="${product.image}" alt="">
                                 </div>
                                 <div class="tite-author">
                                     <p>${product.author}</p>

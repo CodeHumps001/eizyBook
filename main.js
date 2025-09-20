@@ -51,7 +51,7 @@ function renderProducts(books){
         cardHTML += `
                 <div class="product-card">
                         <div class="img-product">
-                        <img src="${book.image}" alt="">
+                        <img loading="lazy" src="${book.image}" alt="${book.title}">
                         </div>
                         <div class="product-details">
                             <h1 class="title product-name">${book.title}</h1>
