@@ -65,7 +65,7 @@ body{
 
 .product{
     width: 100vw;
-    padding: 50px 40px;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -82,6 +82,30 @@ body{
    
     
 }
+.filter-form{
+   width: 100%; 
+   display: flex;
+   justify-content: start;
+}
+.filter-text{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.filter-text label{
+    font-size: 18px;
+    font-weight: bolder;
+
+}
+.filter-text input{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 11px;
+}
+.filter-text input:focus{
+    outline-color: #e67700;
+}
 .product-card{
     width: 100%;
     display: flex; 
@@ -93,7 +117,6 @@ body{
     box-shadow: 3px 5px 10px 0px rgb(207, 206, 206);
     position: relative;
     overflow: hidden;
-     animation: fade-in ease-in .8s backwards;
 
 }
 .img-product{

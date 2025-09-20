@@ -24,6 +24,7 @@ let productContainer = document.querySelector('.p-c')
 const exitModal = document.querySelector('.shop')
 const modal = document.querySelector('.modal-d')
 const alertBox = document.querySelector('.al')
+const filterInput = document.querySelector('.filter-input')
 
 
 //cart toggle
@@ -67,3 +68,19 @@ function renderProducts(books){
 }
 
 renderProducts(books)
+
+
+filterInput.addEventListener('input', filterProduct)
+function filterProduct(){
+    let filtered = books
+    const filterText = filterInput.value.trim().toLowerCase();
+    console.log(filterText)
+
+    if(filterText){
+        filtered = filtered.filter(product => product.title.toLowerCase().includes(filterText) ||
+        product.author.toLocaleLowerCase().includes(filterText)
+                                    )
+    }
+    renderProducts(filtered)
+   
+}
